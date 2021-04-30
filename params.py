@@ -1,6 +1,15 @@
+####################
+# API endpoints
+####################
+
 api_route = '/download'
 api_route_info = '/info'
 api_route_active_downloads = '/active_downloads'
+
+
+####################
+# YouTube-DL Settings
+####################
 
 default_download_format= 'bestvideo+bestaudio/best' #https://github.com/ytdl-org/youtube-dl/tree/3e4cedf9e8cd3157df2457df7274d0c842421945#format-selection
 
@@ -14,6 +23,11 @@ playlist_detection = [ #used to detect if the url is a video, a playlist or a vi
     {'video_indicators': ['/watch?'] , 'playlist_indicators' : ['?list=', '&list=', '/user/', '/playlists']} #youtube
 ]
 
+
+####################
+# Download Location
+####################
+
 root_download_directory = 'downloads'
 # https://github.com/ytdl-org/youtube-dl/tree/3e4cedf9e8cd3157df2457df7274d0c842421945#output-template
 # you can use those tags : %hostname%, %location_identifier%, %filename_identifier%, %user_name%
@@ -21,6 +35,11 @@ download_directory_templates={ # you must keep a 'default' preset
     'default' : f'{root_download_directory}/',
     #'dad' : '/home/dad/' # utility example
 }
+
+
+####################
+# Templates
+####################
 
 # https://github.com/ytdl-org/youtube-dl/tree/3e4cedf9e8cd3157df2457df7274d0c842421945#output-template
 # you can use those tags : %hostname%, %location_identifier%, %filename_identifier%, %user_name%
@@ -39,6 +58,11 @@ presets_templates={ # you must keep a 'default' preset
     'sd' : {'format' : 'best[height=360]/bestvideo[height=360]+bestaudio/best'},
     'archiving' : {'filename' : 'playlist'},
 }
+
+
+####################
+# User Management
+####################
 
 # enable security in case yu want to open the api to the web
 enable_users_management = False
