@@ -15,7 +15,7 @@ api_route_active_downloads = '/active_downloads'
 ####################
     # For Log Format options - https://docs.python.org/3/library/logging.html#logrecord-attributes
     # Log mode can be a = append, or w = overwrite file
-    
+
 log_file = '/logs/app.log'
 log_mode = 'a'
 log_entry_format = '%(asctime)s: %(name)s - %(levelname)s - %(message)s'
@@ -27,7 +27,7 @@ logging_level = logging.DEBUG
 # YouTube-DL Settings
 ####################
 
-default_download_format= 'bestvideo+bestaudio/best' #https://github.com/ytdl-org/youtube-dl/tree/3e4cedf9e8cd3157df2457df7274d0c842421945#format-selection
+default_download_format = 'bestvideo+bestaudio/best' #https://github.com/ytdl-org/youtube-dl/tree/3e4cedf9e8cd3157df2457df7274d0c842421945#format-selection
 
 default_subtitles_languages = None #example : 'en,fr'
 default_subtitles_format = 'srt'
@@ -47,7 +47,7 @@ playlist_detection = [ #used to detect if the url is a video, a playlist or a vi
 root_download_directory = 'downloads'
 # https://github.com/ytdl-org/youtube-dl/tree/3e4cedf9e8cd3157df2457df7274d0c842421945#output-template
 # you can use those tags : %hostname%, %location_identifier%, %filename_identifier%, %user_name%
-download_directory_templates={ # you must keep a 'default' preset
+download_directory_templates = { # you must keep a 'default' preset
     'default' : f'{root_download_directory}/',
     #'dad' : '/home/dad/' # utility example
 }
@@ -65,7 +65,7 @@ file_name_templates = { # you must keep a 'default' preset
     'audio' : 'audio/%(title)s.%(ext)s',
 }
 
-presets_templates={ # you must keep a 'default' preset
+presets_templates = { # you must keep a 'default' preset
     'default' : {'format' : default_download_format, 'subtitles' : default_subtitles_languages, 'location' : 'default', 'filename' : 'default'},
     'audio': {'format' : 'bestaudio', 'filename' : 'audio'}, # you can skip parameters you want to remain default
     'best' : {'format' : 'bestvideo+bestaudio/best'},
