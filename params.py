@@ -8,6 +8,15 @@ api_route_active_downloads = '/active_downloads'
 
 
 ####################
+# Logging Settings
+####################
+
+log_file = '/logs/app.log'
+log_entry_format = '%(name)s - %(levelname)s - %(message)s'
+logging_level = logging.DEBUG
+
+
+####################
 # YouTube-DL Settings
 ####################
 

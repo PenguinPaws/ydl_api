@@ -2,6 +2,10 @@ import logging, ydl_utils, params, youtube_dl, process_utils
 from urllib.parse import urlparse, unquote
 from fastapi import BackgroundTasks, FastAPI, Response
 
+# Output logging to file. More details available here - https://realpython.com/python-logging/
+logging.basicConfig(filename = params.log_file, filemode='w', format=params.log_entry_format, level=params.logging_level)
+
+
 app = FastAPI()
 
 @app.get(params.api_route)
