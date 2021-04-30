@@ -3,7 +3,13 @@ from urllib.parse import urlparse, unquote
 from fastapi import BackgroundTasks, FastAPI, Response
 
 # Output logging to file. More details available here - https://realpython.com/python-logging/
-logging.basicConfig(filename = params.log_file, filemode='w', format=params.log_entry_format, level=params.logging_level)
+logging.basicConfig(
+    filename    = params.log_file, 
+    filemode    = params.log_mode, 
+    format      = params.log_entry_format, 
+    datefmt     = params.log_date_format, 
+    level       = params.logging_level
+)
 
 
 app = FastAPI()
