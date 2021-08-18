@@ -53,14 +53,14 @@ EXPOSE $PORT
 ARG OutputDir=/output
 ARG LogsDir=/logs
 RUN \
-    mkdir -p downloads && chown $USERNAME:$USERNAME downloads && \
+    mkdir -p downloads && chown $UID:$GID downloads && \
     ls -la $WorkingDir/down* && \
     ls -la $WorkingDir && \
     ln -s $WorkingDir/downloads/ $OutputDir && \
-    chown -h $USERNAME:$USERNAME $OutputDir && \
+    chown -h $UID:$GID $OutputDir && \
     install -d -m 0755 -o $USERNAME -g $USERNAME $WorkingDir/logs/ && \
     ln -s $WorkingDir/logs/ $LogsDir && \
-    chown -h $USERNAME:$USERNAME $LogsDir
+    chown -h $UID:$GID $LogsDir
 
 # Run program. This is the same command as in the "ExecStart" section of the ydl_api.service file
 RUN echo "Username: $USERNAME"
@@ -69,11 +69,11 @@ USER $USERNAME
 # Install Python Dependencies
 #COPY requirements.txt /tmp
 #RUN pip3 install --upgrade pip3
+ENV PATH="/home/$USERNAME/.local/bin:${PATH}"
 RUN pip3 install --user fastapi youtube-dl uvicorn --upgrade && \
     pip3 install --user psutil --upgrade && \
     pip3 install --user aiofiles --upgrade
 
-ENV PATH="/home/$USERNAME/.local/bin:${PATH}"
     
 RUN echo "ID: $(id)"
 CMD ["/opt/ydl_api/launch.sh"]
