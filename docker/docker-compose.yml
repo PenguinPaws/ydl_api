@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build:
+        context: ..
+        args:
+            - UID:1000
+            - GID:1000
+        dockerfile: docker/Dockerfile
+    container_name: ydlapi
+    restart: unless-stopped
+    #volumes:
+    #    - ./data/:/output/videos
+    #    - ./logs/:/logs
+    ports:
+        - 5012:5011
