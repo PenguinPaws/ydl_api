@@ -16,9 +16,9 @@ api_route_active_downloads = '/active_downloads'
     # For Log Format options - https://docs.python.org/3/library/logging.html#logrecord-attributes
     # Log mode can be a = append, or w = overwrite file
 
-log_file = '/logs/app.log'
+log_file = 'logs/app.log'
 log_mode = 'a'
-log_entry_format = '%(asctime)s: %(name)s - %(levelname)s - %(message)s'
+log_entry_format = '%(asctime)s %(name)s - %(levelname)s - %(message)s'
 log_date_format = '%Y-%m-%d %H:%M'
 logging_level = logging.DEBUG
 
