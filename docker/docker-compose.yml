@@ -10,8 +10,8 @@ services:
         dockerfile: docker/Dockerfile
     container_name: ydlapi
     restart: unless-stopped
-    #volumes:
-    #    - ./data/:/output/videos
-    #    - ./logs/:/logs
+    volumes:
+        - ./data/:/opt/ydl_api/downloads/videos
+        - ./logs/:/opt/ydl_api/logs
     ports:
         - 5012:5011
