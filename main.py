@@ -1,6 +1,11 @@
-import logging, ydl_utils, params, youtube_dl, process_utils
+import logging, ydl_utils, params, youtube_dl, process_utils, os
 from urllib.parse import urlparse, unquote
 from fastapi import BackgroundTasks, FastAPI, Response
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, FileResponse
+
+# Create folder for log_file, if not exists
+os.makedirs(os.path.dirname(params.log_file), exist_ok=True)
 
 # Output logging to file. More details available here - https://realpython.com/python-logging/
 logging.basicConfig(
@@ -13,6 +18,13 @@ logging.basicConfig(
 
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get('/', include_in_schema=False)
+def index_page():
+    #return HTMLResponse(pkg_resources.resource_string(__name__, 'static/index.html'))
+    return FileResponse('static/index.html')
 
 @app.get(params.api_route)
 async def download_request(response : Response, background_tasks : BackgroundTasks, url, token = None,
