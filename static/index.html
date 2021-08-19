@@ -44,6 +44,7 @@
         let elmID = "bookmarklet"
         let title = "YDL Download";
         let host = window.location.href;
+        host = (host.substr(-1) === '/') ? host.slice(0, -1) : host;  /* Remove any trailing slash*/
         let endpoint = '/download?url=';
         let videoURL = "window.location.href.split('&')[0]";
         
