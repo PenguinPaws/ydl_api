@@ -26,6 +26,12 @@ def index_page():
     #return HTMLResponse(pkg_resources.resource_string(__name__, 'static/index.html'))
     return FileResponse('static/index.html')
 
+@app.get('/userscript.js', include_in_schema=True)
+def index_page():
+    #return HTMLResponse(pkg_resources.resource_string(__name__, 'static/index.html'))
+    return FileResponse('userscript.js')
+
+
 @app.get(params.api_route)
 async def download_request(response : Response, background_tasks : BackgroundTasks, url, token = None,
                           format = None, subtitles  = None, location = None, filename  = None, presets = None):
