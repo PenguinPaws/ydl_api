@@ -12,7 +12,12 @@
 
     <title>YDL API</title>
 
-    <link rel="stylesheet" href="/static/css/ydl_api.css?v=1.0">
+    <!-- Changing to below to always never cache the css
+    <link rel="stylesheet" href="/static/css/ydl_api.css?v=1.0" type="text/css" />
+    -->
+    <script>
+        document.write('<link rel="stylesheet" href="/static/css/ydl_api.css?r='+ (new Date()).getTime() +'" type="text/css" />');
+    </script>
 
 </head>
 
