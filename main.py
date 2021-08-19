@@ -23,12 +23,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get('/', include_in_schema=False)
 def index_page():
-    #return HTMLResponse(pkg_resources.resource_string(__name__, 'static/index.html'))
     return FileResponse('static/index.html')
 
 @app.get('/userscript.js', include_in_schema=True)
-def index_page():
-    #return HTMLResponse(pkg_resources.resource_string(__name__, 'static/index.html'))
+def Get_TamperMonkey_UserScript():
     return FileResponse('userscript.js')
 
 
